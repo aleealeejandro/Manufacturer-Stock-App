@@ -1,0 +1,123 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPanel"
+            xmlns="http://javafx.com/javafx/11"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+    <top>
+        <Label>INVENTORY MANAGEMENT SYSTEM</Label>
+    </top>
+
+    <center>
+        <VBox>
+            <SplitPane>
+                <AnchorPane>
+                    <VBox>
+                        <HBox>
+                            <Label>Parts</Label>
+                            <TextField fx:id="partSearchField" promptText="Search Parts by ID or Name" onAction="#searchForPart"/>
+                        </HBox>
+
+                        <TableView fx:id="partsTable" >
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn text="Part Name" fx:id="partName">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="name"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="ID" fx:id="partID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="Stock" fx:id="partStock">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="stock"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="Price/Cost per Unit" fx:id="partPrice">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+
+                        <HBox>
+                            <Button text="Add" onAction="#showAddPartDialog">
+                            </Button>
+
+                            <Button text="Edit" onAction="#showEditPartDialog">
+                            </Button>
+
+                            <Button text="Delete" onAction="#deletePart">
+                            </Button>
+                        </HBox>
+                    </VBox>
+                </AnchorPane>
+
+                <AnchorPane>
+                    <VBox>
+                        <HBox>
+                            <Label>Products</Label>
+                            <TextField fx:id="productSearchField" promptText="Search Products by ID or Name" onAction="#searchForProduct"/>
+                        </HBox>
+
+                        <TableView fx:id="productsTable" >
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn text="Product Name" fx:id="productName">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="name"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="ID" fx:id="productID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="Stock" fx:id="productStock">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="stock"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                                <TableColumn text="Price/Cost per Unit" fx:id="productPrice">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+
+                        <HBox>
+                            <Button text="Add" onAction="#showAddProductDialog"/>
+                            <Button text="Edit" onAction="#showEditProductDialog"/>
+                            <Button text="Delete" onAction="#deleteProduct"/>
+                        </HBox>
+                    </VBox>
+                </AnchorPane>
+
+            </SplitPane>
+        </VBox>
+
+    </center>
+
+    <bottom>
+        <Button text="Exit" onAction="#exitButtonClicked" fx:id="exitButton"/>
+    </bottom>
+</BorderPane>

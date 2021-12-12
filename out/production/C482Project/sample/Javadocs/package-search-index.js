@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"C482Project","l":"sample"},{"m":"C482Project","l":"sample.datamodel"}]
